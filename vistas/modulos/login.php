@@ -33,10 +33,11 @@
                     </div>
 
                     <?php
-                        $login = new ControladorUsuarios();
-                        $login -> ctrIngresar();
+                    $login = new ControladorUsuarios();
+                    // $login->ctrIngresar();
+                    $login->ctrIngreso();
                     ?>
-                    
+
                 </form>
             </div>
             <!-- /.login-card-body -->

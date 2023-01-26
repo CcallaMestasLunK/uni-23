@@ -39,7 +39,7 @@
     <script src="vistas/plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
-    $.widget.bridge('uibutton', $.ui.button)
+        $.widget.bridge('uibutton', $.ui.button)
     </script>
     <!-- Bootstrap 4 -->
     <script src="vistas/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -69,47 +69,49 @@
     <script src="vistas/dist/js/demo.js"></script>
 
     <!-- Datatable Jquery-->
-<script type="text/javascript" src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="vistas/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script type="text/javascript" src="vistas/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<!--SweetAlert2-->
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="vistas/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="vistas/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <!--SweetAlert2-->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-</head>  
+</head>
 
-        <?php
-        
-        if(isset($_SESSION['iniciarSesion'])&&$_SESSION['iniciarSesion']=="ok"){
+<?php
 
-            echo '<body class="hold-transition sidebar-mini layout-fixed">';
-            echo '<div class="wrapper">';
+if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == "ok") {
 
-            include "vistas/modulos/cabezote.php";
-            include "vistas/modulos/menu.php";
-            if(isset($_GET['ruta'])){
-                if($_GET['ruta']=="inicio"||
-                $_GET['ruta']=="perfil"||
-                $_GET['ruta']=="usuario"||
-                $_GET['ruta']=="asistencia"||
-                $_GET['ruta']=="calendario"||
-                $_GET['ruta']=="crearcurso"||
-                $_GET['ruta']=="reportedecursos"||
-                $_GET['ruta']=="salir"){
-        
-                include "vistas/modulos/".$_GET['ruta'].".php";
-                }else{
-                    include "vistas/modulos/404.php";
-                }
-            }
-            include "vistas/modulos/footer.php";
-        }else{
-            echo '<body class="hold-transition sidebar-mini layout-fixed login-page">';
-            include "vistas/modulos/login.php";
+    echo '<body class="hold-transition sidebar-mini layout-fixed">';
+    echo '<div class="wrapper">';
+
+    include "vistas/modulos/cabezote.php";
+    include "vistas/modulos/menu.php";
+    if (isset($_GET['ruta'])) {
+        if (
+            $_GET['ruta'] == "inicio" ||
+            $_GET['ruta'] == "perfil" ||
+            $_GET['ruta'] == "usuario" ||
+            $_GET['ruta'] == "asistencia" ||
+            $_GET['ruta'] == "calendario" ||
+            $_GET['ruta'] == "crearcurso" ||
+            $_GET['ruta'] == "reportedecursos" ||
+            $_GET['ruta'] == "salir"
+        ) {
+
+            include "vistas/modulos/" . $_GET['ruta'] . ".php";
+        } else {
+            include "vistas/modulos/404.php";
         }
+    }
+    include "vistas/modulos/footer.php";
+} else {
+    echo '<body class="hold-transition sidebar-mini layout-fixed login-page">';
+    include "vistas/modulos/login.php";
+}
 
-        ?>
-<script src="vistas/js/plantilla.js"></script>      
-<script src="vistas/js/usuarios.js"></script>  
+?>
+<script src="vistas/js/plantilla.js"></script>
+<script src="vistas/js/usuarios.js"></script>
 </body>
 
 </html>
